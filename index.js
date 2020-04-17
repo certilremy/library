@@ -7,6 +7,14 @@ function Book(title, author, pages, readStatus = false) {
   this.readStatus = readStatus;
 }
 
+function removeBook(book) {
+
+  delete myLibrary[book]
+
+   displayBooks(myLibrary);
+
+}
+
 function updatereadStatus(index) {
   if (myLibrary[index].readStatus === true) {
     myLibrary[index].readStatus = false;
@@ -29,15 +37,16 @@ function AddBook() {
   const pages = document.getElementById("pages").value;
   const newBook = new Book(title, author, pages);
   myLibrary.push(newBook);
-  console.log(myLibrary);
   displayBooks(myLibrary);
   clearFields();
 }
+
 function clearFields() {
   document.getElementById("title").value = "";
   document.getElementById("author").value = "";
   document.getElementById("pages").value = "";
 }
+
 function displayBooks(book) {
   const renderHook = document.getElementById("table");
   book.forEach(function (b, index) {
@@ -47,18 +56,10 @@ function displayBooks(book) {
   <td>${b.title}</td>
   <td>${b.author}</td>
   <td>${b.pages}</td>
-  
+  <td><button class="btn btn-warning " onclick="updatereadStatus(${index});">${b.readStatus ? "Unread" : "Read"}</button></td>
 
-  <td><button class="btn btn-danger">Remove</button></td>
+  <td><button class="btn btn-danger" onclick="removeBook(${index});">Remove</button></td>
   `;
     renderHook.append(tr);
   });
-}
-
-
-if (b.readStatus === true){
-    <td><button class="btn btn-warning " onclick="updatereadStatus(${index});"> Unread</button></td>
-}
-else {
-    <td><button class="btn btn-warning " onclick="updatereadStatus(${index});"> Read</button></td>
 }
