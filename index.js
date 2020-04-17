@@ -7,14 +7,6 @@ function Book(title, author, pages, readStatus = false) {
   this.readStatus = readStatus;
 }
 
-function removeBook(book) {
-
-  delete myLibrary[book]
-
-   displayBooks(myLibrary);
-
-}
-
 function updatereadStatus(index) {
   if (myLibrary[index].readStatus === true) {
     myLibrary[index].readStatus = false;
@@ -49,6 +41,7 @@ function clearFields() {
 
 function displayBooks(book) {
   const renderHook = document.getElementById("table");
+  renderHook.innerHTML = '';
   book.forEach(function (b, index) {
     const tr = document.createElement("tr");
     tr.className = "table-info";
@@ -56,10 +49,17 @@ function displayBooks(book) {
   <td>${b.title}</td>
   <td>${b.author}</td>
   <td>${b.pages}</td>
-  <td><button class="btn btn-warning " onclick="updatereadStatus(${index});">${b.readStatus ? "Unread" : "Read"}</button></td>
+  <td><button class="btn btn-warning " onclick="updatereadStatus(${index});">${
+      b.readStatus ? "Unread" : "Read"
+    }</button></td>
 
   <td><button class="btn btn-danger" onclick="removeBook(${index});">Remove</button></td>
   `;
     renderHook.append(tr);
   });
+}
+
+function removeBook(book) {
+  delete myLibrary[book];
+  displayBooks(myLibrary);
 }
