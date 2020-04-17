@@ -42,6 +42,7 @@ function AddBook() {
   clearFields();
 }
 
+// eslint-disable-next-line no-unused-vars
 function updatereadStatus(index) {
   if (myLibrary[index].readStatus === true) {
     myLibrary[index].readStatus = false;
@@ -57,6 +58,7 @@ document.getElementById('book-form')
     AddBook();
   });
 
+// eslint-disable-next-line no-unused-vars
 function removeBook(book) {
   delete myLibrary[book];
   displayBooks(myLibrary);
