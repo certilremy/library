@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/b9b46f8845.js" crossorigin="anonymous"></script>
+    <title>Library</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-3 text-center"><i class="fas fa-book-open text-warning"></i> Library</h1>
+                <div class="col-md-6 ml-auto mr-auto">
+                    <form id="book-form">
+                        <div class="form-group">
+                          <label for="title">Enter Title</label>
+                          <input type="text" class="form-control" id="title" placeholder="Title" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="title">Enter Author</label>
+                          <input type="text" class="form-control" id="author" placeholder="Author" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="title">Enter Pages</label>
+                          <input type="text" class="form-control" id="pages" placeholder="Pages" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form> 
+                </div>
+            </div>
+            <table class="table table-hover mt-2" >
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Pages</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Remove</th>
+                  </tr>
+                </thead>
+                <tbody id="table">
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+</body>
+<script src="./index.js">
+
+</script>
+</html>
