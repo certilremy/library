@@ -1,10 +1,12 @@
 const myLibrary = [];
 
-function Book(title, author, pages, readStatus = false) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readStatus = readStatus;
+class Book {
+  constructor(title, author, pages, readStatus = false) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+  }
 }
 function displayBooks(book) {
   const renderHook = document.getElementById('table');
